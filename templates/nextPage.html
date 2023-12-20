@@ -1,0 +1,130 @@
+<html>
+    <head>
+         <style>
+			*{
+                margin: 0px;
+                padding: 0px;
+                }
+            #id1{
+                font-size: xx-large;
+                font-weight: bold;
+                height: 100px;
+                width:100%;
+                background-color: aqua;
+                border:2px solid black;
+                text-align: center;
+            }
+            #navBar{
+                position: sticky;
+                font-size: medium;
+                font-weight: bold;
+                height: 50px;
+                width:100%;
+                background-color:green;
+                border:2px solid black;
+                text-align: center;
+                
+            }
+             .InventoryTable table {
+                 border-collapse: collapse;
+	             width: 100%;
+	             text-align: center;
+             }
+             .InventoryTable th, td{
+	               border: 1px solid #ddd;
+	               padding: 8px;
+               }
+
+               .InventoryTablet th {
+	               background-color: #15b6f0;
+	               color: rgba(255, 254, 254, 0.819);
+               }
+
+               .InventoryTable tr:nth-child(even) {
+	               background-color: #90edec;
+	           }
+			   span{
+				 height: 250px;
+				 width: 250px;
+				 border: solid black 2px;
+			   }
+			   .footer{
+                height:100px;
+                width:100%;
+                background-color: cyan;
+                border:2px solid black;
+				display:block;
+            }
+			#button1{
+				background-color: yellow;
+				border-radius: 8px;
+			}
+			.button2{
+				background-color: rgb(0, 26, 255);
+				border-radius: 8px;
+				color: white;
+				font-size: 15px;
+				text-decoration: none;
+				border: 2px solid black;
+			}
+         </style>
+
+    </head>
+     <body>
+		<header id="id1"><h3>Laptop Recomendention Website...</h3></header>
+
+        <div id="navBar">
+			<a href="{{ url_for('main')}}" class="button2">Home</a> |
+			<a href="/about/" class="button2">About</a> |
+			<a href="/contact/" class="button2">Contact</a> |
+			<a href="/register/" class="button2">Register</a> | 
+			<a href="{{ url_for('comparison')}}" class="button2">Compare</a> |
+			<a href="/login/" class="button2">Login</a>
+			<br>
+			<form action="/search" method="post">
+				<input type="text" placeholder="Search Here.." name="search" id="search" >
+				<button type="submit"  id="button1">Search</button>
+			</form>
+        </div>
+      <div class="InventoryTable">
+	   	<table>
+		<thead>
+			<tr>
+				
+				<th colspan="2">Data</th>
+				 
+			</tr>
+		</thead>
+		<tbody>
+			 
+	
+				 
+				{% set data2_file_name = rows['data_file_name'] %}
+		        <tr> <td style=" border: 1px solid #ddd;" colspan="2"> <img src="{{ url_for('display_image', data2_file_name=data2_file_name ) }}" height="250px" width="250px" alt="image"> </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Id</b></td><td style=" border: 1px solid #ddd;">{{ rows['id'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Brand</b></td><td style=" border: 1px solid #ddd;">{{ rows['brand'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Name</b></td><td style=" border: 1px solid #ddd;">{{ rows['name'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Price</b></td><td style=" border: 1px solid #ddd;">₹{{ rows['price'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Processor</b></td><td style=" border: 1px solid #ddd;">{{ rows['processor'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Ram</b></td><td style=" border: 1px solid #ddd;">{{ rows['Ram'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Rom</b></td><td style=" border: 1px solid #ddd;">{{ rows['ROM'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Rom Type</b></td><td style=" border: 1px solid #ddd;">{{ rows['ROM_type'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Spec. Rating</b></td><td style=" border: 1px solid #ddd;">{{ rows['spec_rating'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>CPU</b></td><td style=" border: 1px solid #ddd;">{{ rows['CPU'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Ram Type</b></td><td style=" border: 1px solid #ddd;">{{ rows['Ram_type'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>GPU</b></td><td style=" border: 1px solid #ddd;">{{ rows['GPU'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Display Size</b></td><td style=" border: 1px solid #ddd;">{{ rows['display_size'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Resolution Width</b></td><td style=" border: 1px solid #ddd;">{{ rows['resolution_width'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Resolution Height</b></td><td style=" border: 1px solid #ddd;">{{ rows['resolution_height'] }} </td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Os</b></td><td style=" border: 1px solid #ddd;">{{ rows[ 'OS'] }}</td></tr>
+				<tr><td style=" border: 1px solid #ddd;"><b>Warranty</b></td><td style=" border: 1px solid #ddd;">{{ rows['warranty'] }}</td></tr>
+				 
+			
+			 
+
+		</tbody>
+	 </table>
+     </div>
+     <footer class="footer"><h2>Website Under Progress ....</h2></footer>
+     </body>
+</html>

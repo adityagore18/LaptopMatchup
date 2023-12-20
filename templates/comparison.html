@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <style>
+             *{
+                margin: 0px;
+                padding: 0px;
+                }
+            #id1{
+                font-size: xx-large;
+                font-weight: bold;
+                height: 100px;
+                width:100%;
+                background-color: aqua;
+                border:2px solid black;
+                text-align: center;
+            }
+            #navBar{
+                position: sticky;
+                font-size: medium;
+                font-weight: bold;
+                height: 50px;
+                width:100%;
+                background-color:green;
+                border:2px solid black;
+                text-align: center;
+                
+            }
+            .InventoryTable table {
+                border-collapse: collapse;
+                width: 100%;
+                text-align: center;
+            }
+            .InventoryTable th, td{
+                  border: 1px solid #ddd;
+                  padding: 8px;
+              }
+
+              .InventoryTablet th {
+                  background-color: #15b6f0;
+                  color: rgba(255, 254, 254, 0.819);
+              }
+
+              .InventoryTable tr:nth-child(even) {
+                  background-color: #90edec;
+              }
+              span{
+                height: 250px;
+                width: 250px;
+                border: solid black 2px;
+              }
+              i{
+                color:red;
+              }
+              .footer{
+                height:100px;
+                width:100%;
+                background-color: cyan;
+                border:2px solid black;
+				display:block;
+            }
+            #button1{
+				background-color: yellow;
+				border-radius: 8px;
+			}
+			.button2{
+				background-color: rgb(0, 26, 255);
+				border-radius: 8px;
+				color: white;
+				font-size: 15px;
+				text-decoration: none;
+				border: 2px solid black;
+			}
+        </style>
+
+    </head>
+     <body>
+        <header id="id1"><h3>Laptop Recomendention Website...</h3></header>
+
+        <div id="navBar">
+			<a href="{{ url_for('main')}}" class="button2">Home</a> |
+			<a href="/about/" class="button2">About</a> |
+			<a href="/contact/" class="button2">Contact</a> |
+			<a href="/register/" class="button2">Register</a> | 
+			<a href="{{ url_for('comparison')}}" class="button2">Compare</a> |
+			<a href="/login/" class="button2">Login</a>
+			<br>
+			<form action="/search" method="post">
+				<input type="text" placeholder="Search Here.." name="search" id="search" >
+				<button type="submit"  id="button1">Search</button>
+			</form>
+        </div>
+ 
+			 
+	
+				 
+            <form action="/comparisonNext" method="post"  autocomplete="off">
+                
+                <label for="getItem">Select Brand 1:</label>
+                <input type="text" name="getItem" id="getItem" list="type_of_item" required>
+                <datalist id="type_of_item">
+                   {% for row in rows %}
+                        <option>{{row['brand']}}</option>
+                    {% endfor %}
+
+                </datalist>
+                <label for="getItem">Select Brand 2:</label>
+                <input type="text" name="getItem2" id="getItem2" list="type_of_item2" required>
+                <datalist id="type_of_item2">
+                   {% for row in rows %}
+                        <option>{{row['brand']}}</option>
+                    {% endfor %}
+
+                </datalist>
+                <label for="getItem3">Select Brand 2:</label>
+                <input type="text" name="getItem3" id="getItem3" list="type_of_item3" required>
+                <datalist id="type_of_item3">
+                   {% for row in rows %}
+                        <option>{{row['brand']}}</option>
+                    {% endfor %}
+
+                </datalist>
+                <button type="submit">Apply</button>
+            </form>
+            <div> 
+                Selected Brand : 
+                Brand 1: <i>{{brand1}}  </i>         Brand 2: <i>{{brand2}}</i>                 Brand 3: <i>{{brand3}}</i>
+            </div>
+            <form action="/Docomparison" method="post"  autocomplete="off">
+                
+                <label for="getItem4">Select Laptop :</label>
+                <input type="text" name="getItem4" id="getItem4" list="type_of_item4" required>
+                <datalist id="type_of_item4">
+                   {% for row1 in rows1 %}
+                        <option>{{row1['name']}}</option>
+                    {% endfor %}
+
+                </datalist>
+                <label for="getItem5">Select Laptop :</label>
+                <input type="text" name="getItem5" id="getItem5" list="type_of_item5" required>
+                <datalist id="type_of_item5">
+                   {% for row2 in rows2 %}
+                        <option>{{row2['name']}}</option>
+                    {% endfor %}
+
+                </datalist>
+                <label for="getItem6">Select Laptop :</label>
+                <input type="text" name="getItem6" id="getItem6" list="type_of_item6" required>
+                <datalist id="type_of_item6">
+                   {% for row3 in rows3 %}
+                        <option>{{row3['name']}}</option>
+                    {% endfor %}
+
+                </datalist>
+                <button type="submit">Apply</button>
+            </form>
+
+            
+				 
+
+			 
+
+		 
+     <footer class="footer"><h2>Website Under Progress ....</h2></footer>
+     </body>
+</html>

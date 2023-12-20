@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            #id1{
+                font-size: xx-large;
+                font-weight: bold;
+                height: 100px;
+                width:100%;
+                background-color: aqua;
+                border:2px solid black;
+                text-align: center;
+            }
+            #navBar{
+                position: sticky;
+                font-size: medium;
+                font-weight: bold;
+                height: 50px;
+                width:100%;
+                background-color:green;
+                border:2px solid black;
+                text-align: center;
+                
+            }
+            .slideBar{
+                width:251px;
+                height: 800px;
+                background-color: blueviolet;
+                border:2px solid black;
+                display:inline-block;
+                text-align: center;
+                
+            }
+            .mainContent{
+                width:82%;
+                height:800px;
+                background-color: chartreuse;
+                display: inline-block;
+                text-align: center;
+                border:2px solid black;
+
+            }
+            .footer{
+                height:100px;
+                width:100%;
+                background-color: cyan;
+                border:2px solid black;
+
+            }
+            .mainContainer{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                background-color: green;
+                text-align: center;
+            }
+            .mainContainer >div{
+                background-color: pink;
+                width: 300px;
+                height: 200px;
+                margin: 10px;
+                font-size: 40px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <p id="id1">Header</p>
+        <p id="navBar">Navigation Bar</p>
+        <div class="slideBar">Slide Bar</div>
+        <div class="mainContent">
+            <div class="mainContainer">
+                <div>A</div>
+                <div>B</div>
+                <div>c</div>
+                <div>A</div>
+                <div>B</div>
+                <div>c</div>
+                <div>A</div>
+                <div>B</div>
+                <div>c</div>
+            </div>
+        </div>
+        <footer class="footer">Footer</footer>
+
+    </body>
+</html>
