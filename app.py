@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, url_for, render_template, session,se
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import secrets
-import pymysql
+
 import io
 
 app = Flask(__name__)
@@ -123,5 +123,4 @@ def search():
         print(f"Error in search route: {e}")
         return "An error occurred while processing your request."
 
-if __name__ == '__main__':
-    app.run(debug=True)
+ 
